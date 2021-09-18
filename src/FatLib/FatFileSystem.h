@@ -90,8 +90,8 @@ class FatFileSystem : public  FatVolume {
    * \param[in] oflag open flags.
    * \return a File object.
    */
-  File open(const char *path, oflag_t oflag = FILE_READ) {
-    File tmpFile;
+  SdFatLibFile open(const char *path, oflag_t oflag = FILE_READ) {
+    SdFatLibFile tmpFile;
     tmpFile.open(vwd(), path, oflag);
     return tmpFile;
   }
@@ -101,7 +101,7 @@ class FatFileSystem : public  FatVolume {
    * \param[in] oflag open flags.
    * \return a File object.
    */
-  File open(const String &path, oflag_t oflag = FILE_READ) {
+  SdFatLibFile open(const String &path, oflag_t oflag = FILE_READ) {
     return open(path.c_str(), oflag );
   }
 #endif  // ENABLE_ARDUINO_FEATURES
